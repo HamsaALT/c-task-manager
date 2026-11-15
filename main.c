@@ -95,7 +95,11 @@ int main() {
         printf("4. Exit\n");
         printf("Choose: ");
 
-        scanf("%d", &choice);
+       if (scanf("%d", &choice) != 1) {
+        while (getchar() != '\n'); // clear invalid input
+        printf("Please enter a number\n");
+        continue;
+        }
 
         if (choice == 1) addTask();
         else if (choice == 2) showTasks();
